@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Спасибо за заказ
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="d-flex justify-content-center align-items-center flex-column" style="height: 50vh">
+                    <h1>Спасибо за заказ</h1>
+                    <p>Тут могла быть логика оплаты или корзины, но мне лень</p>
+                    <a href="{% url "main_page:main" %}" class="btn btn-success">Вернуться в магазин</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,19 @@
+img {
+    width: 100%;
+}
+
+.card {
+    color: #5288f6;
+    text-decoration: none;
+}
+
+.card:hover {
+    color: #004aff;
+    text-decoration: underline;
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    {% if book.left %}
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Make an order</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ book.get_abolute_url }}" id="form" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="id_name" class="col-form-label">Your name:</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_email" class="col-form-label">Your email:</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_phone" class="col-form-label">Your phone:</label>
+                                {{ form.phone }}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" id="submit" class="btn btn-primary">Send message</button>
+                    </div>
+                    <script>
+                        document.querySelector("#submit").onclick = () => {
+                            document.querySelector("#form").submit()
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <section>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="book-image">
+                        <img src="{{ book.image.url }}"
+                             alt="{{ book.title }}">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h1>{{ book.title }}</h1>
+                    <p>{{ book.description }}</p>
+                    {% if book.left %}
+                        <p>Left: {{ book.left }}</p>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Make
+                            an
+                            order</a>
+                    {% else %}
+                        Товар закончился
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

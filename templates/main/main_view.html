@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Book | Main
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                {% for book in books %}
+                <div class="col-md-3 mt-3">
+                    <a href="{{ book.get_abolute_url }}" class="card">
+                        <img src="{{ book.image.url }}"
+                             class="card-img-top" alt="image">
+                        <div class="card-body">
+                            <p class="card-text">{{ book.description|truncatechars:50 }}</p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
