@@ -6,3 +6,15 @@ services:
     command: python manage.py createsuperuser --noinput && python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
+    depends_on:
+      - migrations
+  
+  superuser:
+    build: .
+    command: python manage.py createsuperuser --noinput
+  
+  migrations:
+    build: .
+    command: python manage.py migrate --noinput
+    depends_on:
+      - superuser
