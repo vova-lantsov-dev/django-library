@@ -5,3 +5,4 @@ db.sqlite3
 venv
 obj
 bin
+.tmp

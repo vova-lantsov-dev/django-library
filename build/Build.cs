@@ -1,7 +1,9 @@
 using Nuke.Common;
+using Nuke.Common.CI.TeamCity;
 using Nuke.Common.IO;
 using Nuke.Common.Tooling;
 
+[TeamCity(TeamCityAgentPlatform.Unix, ManuallyTriggeredTargets = new[] {nameof(Down)}, VcsTriggeredTargets = new[] {nameof(Up)}, Version = "2020.2")]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
