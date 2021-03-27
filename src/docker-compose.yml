@@ -3,6 +3,6 @@ version: "3.8"
 services:
   web:
     build: .
-    command: python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000
+    command: python manage.py migrate --noinput && python manage.py createsuperuser --noinput && python manage.py runserver 0.0.0.0:8000s
     ports:
       - "8000:8000"
