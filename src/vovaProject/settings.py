@@ -6,7 +6,9 @@ SECRET_KEY = '-n&7$dqw7+y_x3u)_@m#bc2+)uju16$nh@_*4r$q%l=*+**oj5'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "django-library.vova-lantsov.dev"
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
