@@ -17,7 +17,7 @@ changeBuildType(RelativeId("Up")) {
         }
     }
     steps {
-        insert(1) {
+        insert(0) {
             step {
                 name = "Production docker-compose configuration"
                 type = "djangolibrary_CreateTextFile"
