@@ -36,7 +36,7 @@ changeBuildType(RelativeId("Up")) {
                       web:
                         build:
                           args:
-                            PASS=%env.DATABASE_PASSWORD%
+                            PASS: %env.DATABASE_PASSWORD%
                 """.trimIndent())
             }
         }
