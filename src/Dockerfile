@@ -6,5 +6,5 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 
-RUN python manage.py createsuperuser --noinput &&
-    python manage.py migrate --noinput
+RUN python3 manage.py createsuperuser --noinput &&
+    python3 manage.py migrate --noinput
