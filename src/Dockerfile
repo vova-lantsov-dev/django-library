@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 COPY . /code/
 
 RUN python manage.py migrate --noinput && \
-    python manage.py createsuperuser --username admin --noinput
+    python manage.py createsuperuser --username admin --email contact@vova-lantsov.dev --noinput
