@@ -10,6 +10,12 @@ To apply the patch, change the buildType with id = 'Up'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Up")) {
+    params {
+        add {
+            password("env.DATABASE_PASSWORD", "credentialsJSON:f42d51ff-072d-40f6-90fa-ff61c452cc56", display = ParameterDisplay.HIDDEN)
+        }
+    }
+
     expectSteps {
         exec {
             path = "build.sh"
