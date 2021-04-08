@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.ExecBuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.exec
 import jetbrains.buildServer.configs.kotlin.v2018_1.ui.*
 
@@ -33,10 +34,14 @@ changeBuildType(RelativeId("Up")) {
                     
                     services:
                       web:
-                        environment:
-                          - DJANGO_SUPERUSER_PASSWORD=%env.DATABASE_PASSWORD%
+                        build:
+                          args:
+                            PASS=%env.DATABASE_PASSWORD%
                 """.trimIndent())
             }
+        }
+        update<ExecBuildStep>(1) {
+            clearConditions()
         }
     }
 }
