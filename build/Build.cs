@@ -16,12 +16,9 @@ class Build : NukeBuild
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
-    
-    [Parameter("Check both checkboxes to wipe the database data")]
-    readonly bool WipeDatabaseData;
 
-    [Parameter]
-    readonly bool WipeDatabaseDataProtection;
+    [Parameter("The name of docker-compose project")]
+    readonly string ProjectName = "django-library";
     
     [PathExecutable("docker-compose")]
     readonly Tool DockerCompose;
@@ -31,17 +28,14 @@ class Build : NukeBuild
     Target Down => _ => _
         .Executes(() =>
         {
-            if (WipeDatabaseData && WipeDatabaseDataProtection)
-                DockerCompose("down -v", SourceDirectory);
-            else
-                DockerCompose("down", SourceDirectory);
+            DockerCompose($"-p {ProjectName} down", SourceDirectory);
         });
     
     Target Up => _ => _
         .DependsOn(Down)
         .Executes(() =>
         {
-            DockerCompose("up --build -d", SourceDirectory);
+            DockerCompose($"-p {ProjectName} up --build -d", SourceDirectory);
         });
 
 }

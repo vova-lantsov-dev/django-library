@@ -7,7 +7,8 @@ SECRET_KEY = '-n&7$dqw7+y_x3u)_@m#bc2+)uju16$nh@_*4r$q%l=*+**oj5'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "django-library.vova-lantsov.dev"
+    "django-library.vova-lantsov.dev",
+    "82.193.110.64"
 ]
 
 INSTALLED_APPS = [

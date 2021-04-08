@@ -43,20 +43,12 @@ project {
             value = "Release",
             options = listOf("Debug" to "Debug", "Release" to "Release"),
             display = ParameterDisplay.NORMAL)
-        checkbox (
-            "env.WipeDatabaseData",
-            label = "WipeDatabaseData",
-            description = "Check both checkboxes to wipe the database data",
-            value = "False",
-            checked = "True",
-            unchecked = "False",
-            display = ParameterDisplay.NORMAL)
-        checkbox (
-            "env.WipeDatabaseDataProtection",
-            label = "WipeDatabaseDataProtection",
-            value = "False",
-            checked = "True",
-            unchecked = "False",
+        text (
+            "env.ProjectName",
+            label = "ProjectName",
+            description = "The name of docker-compose project",
+            value = "django-library",
+            allowEmpty = true,
             display = ParameterDisplay.NORMAL)
     }
 }
