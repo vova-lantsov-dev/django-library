@@ -2,9 +2,10 @@ version: "3.8"
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        PASS: Password123
     command: python manage.py runserver 0.0.0.0:8000
-    environment:
-      - DJANGO_SUPERUSER_PASSWORD=Password123
     ports:
       - "8000:8000"
