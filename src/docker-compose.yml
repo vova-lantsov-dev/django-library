@@ -4,5 +4,7 @@ services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - DJANGO_SUPERUSER_PASSWORD=Password123
     ports:
       - "8000:8000"
